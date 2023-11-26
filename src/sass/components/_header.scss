@@ -1,0 +1,128 @@
+.header {
+  font-size: 1.8rem;
+  height: 156px;
+  display: flex;
+  justify-content: center;
+  padding: 0 108px;
+
+  @media (max-width: $layout-breakpoint-medium) {
+    padding: 0 72px;
+    font-size: 1.6rem;
+  }
+
+  @media (max-width: $layout-breakpoint-xsmall) {
+    padding: 0 12px;
+    height: 96px;
+    font-size: 1.2rem;
+  }
+
+  .container-checkbox {
+    padding-top: 6rem;
+    padding-left: 2rem;
+    @media (max-width: $layout-breakpoint-xsmall) {
+      padding-top: 3.2rem;
+    }
+
+    .toggle {
+      background-color: #fff;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: grid;
+      padding-top: .4rem;
+      place-items: center;
+      cursor: pointer;
+      box-shadow: 0 0 50px 20px rgba(0, 0, 0, .1);
+      line-height: 1;
+
+      .input {
+        display: none;
+
+        &:checked + .icon--moon {
+          transform: rotate(360deg) scale(0);
+        }
+        &:checked ~ .icon--sun {
+          transition-delay: 200ms;
+          transform: scale(1) rotate(360deg);
+        }
+      }
+
+      .icon {
+        grid-column: 1 / 1;
+        grid-row: 1 / 1;
+        transition: transform 500ms;
+
+        &.icon--moon {
+          transition-delay: 200ms;
+        }
+        
+        &.icon--sun {
+          transform: scale(0);
+        }
+
+        svg {
+          color: $black;
+        }
+      }    
+    }
+  }
+
+  .header-inner {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo {
+      font-weight: 700;
+      font-size: 3.6rem;
+
+      @media (max-width: $layout-breakpoint-medium) {
+        font-size: 3.2rem;
+        flex: 4;
+      }
+    }
+
+    .nav {
+      @media (max-width: $layout-breakpoint-small) {
+        display: none;
+      }
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+
+      .link {
+        list-style: none;
+        margin: 0 40px;
+
+        a {
+          text-decoration: none;
+          color: $black;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    .contact {
+      @media (max-width: $layout-breakpoint-medium) {
+        flex: 1;
+      }
+
+      a {
+        text-decoration: none;
+        border-bottom: 2px solid currentColor;
+        padding-bottom: 12px;
+        white-space: nowrap;
+
+        @media (max-width: $layout-breakpoint-xsmall) {
+          display: none;
+        }
+      }
+    }
+
+  }
+}

@@ -1,0 +1,97 @@
+.container-footer {
+    //position: absolute;
+    //bottom: 0;
+    //width: 100%;
+    font-size: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 108px;
+
+    @media (max-width: $layout-breakpoint-xsmall) {
+        padding: 0
+    }
+
+    p {
+        margin-bottom: 1rem;
+        display: block;
+        min-width: 100%;
+        text-align: center;
+    }
+
+    .card {
+        width: fit-content;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 25px 25px;
+        gap: 20px;
+
+        .socialContainer {
+            width: 52px;
+            height: 52px;
+            background-color: $semi-black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition-duration: .3s;
+
+            &:active {
+                transform: scale(0.9);
+                transition-duration: .3s;
+            }
+
+            &:hover .socialSvg {
+                animation: slide-in-top 0.3s both;
+            }
+
+            .socialSvg {
+                width: 17px;
+
+                path {
+                    fill: $white;
+                }
+            }
+
+        }
+
+        .containerOne:hover {
+            background-color: $insta;
+            transition-duration: .3s;
+        }
+
+        /* twitter*/
+        .containerTwo:hover {
+            background-color: $twitter;
+            transition-duration: .3s;
+        }
+
+        /* linkdin*/
+        .containerThree:hover {
+            background-color: $linkedin;
+            transition-duration: .3s;
+        }
+
+        /* Whatsapp*/
+        .containerFour:hover {
+            background-color: $whats;
+            transition-duration: .3s;
+        }
+
+        @keyframes slide-in-top {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+    }
+}

@@ -1,0 +1,118 @@
+div {
+    .burger__button {
+        display: none;
+        position: absolute;
+        top: 7rem;
+        right: 3rem;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 2rem;
+        height: 2rem;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 11000;
+
+        @media (max-width: $layout-breakpoint-small) {
+            display: flex;
+        }
+
+        @media (max-width: $layout-breakpoint-xsmall) {
+            top: 4rem;
+            right: 6rem;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        div {
+            width: 2rem;
+            height: 0.25rem;
+            background: currentColor;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: .5px;
+
+            &.open {
+                background: $white;
+
+            }
+
+            &:first-child {
+                transform: rotate(0);
+
+                &.open {
+                    transform: rotate(45deg);
+                }
+            }
+
+            &:nth-child(2) {
+                opacity: 1;
+                transform: translateX(0);
+
+                &.open {
+                    opacity: 0;
+                    transform: translateX(20px);
+                }
+            }
+
+            &:nth-child(3) {
+                transform: rotate();
+
+                &.open {
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+
+    .burger__nav {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4rem;
+        background: $active;
+        transform: translateX(100%);
+        height: 100vh;
+        text-align: left;
+        padding: 2rem;
+        position: fixed;
+        top: 0;
+        right: 0;
+        transition: transform 0.3s ease-in-out;
+        z-index: 10000;
+
+        &.open {
+            transform: translateX(0);
+        }
+
+        @media (max-width: $layout-breakpoint-xsmall) {
+            width: 100%;
+        }
+
+        a {
+            font-size: 2rem;
+            padding: 2rem 0;
+            font-weight: bold;
+            letter-spacing: 0.5rem;
+            color: $white;
+            text-decoration: none;
+            transition: color 0.3s linear;
+
+            @media (max-width: 576px) {
+                font-size: 2.5rem;
+                text-align: center;
+            }
+
+            &:hover {
+                color: #343078;
+            }
+        }
+
+    }
+}

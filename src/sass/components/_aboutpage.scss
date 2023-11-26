@@ -1,0 +1,199 @@
+.container--about {
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    max-width: 100vw;
+
+    h1 {
+        font-size: 10rem;
+        font-weight: 500;
+        letter-spacing: -0.8rem;
+        width: 50%;
+        padding: 0rem 3rem;
+
+        @media (max-width: $layout-breakpoint-medium) {
+            font-size: 8rem;
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: $layout-breakpoint-xsmall) {
+            font-size: 6rem;
+            letter-spacing: -0.4rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    &>p {
+        text-indent: 6rem;
+        font-size: 2.2rem;
+        width: 48%;
+        align-self: flex-end;
+        padding: 0rem 3rem;
+        margin-bottom: 3rem;
+
+        @media (max-width: $layout-breakpoint-medium) {
+            width: 75%;
+            font-size: 1.8rem;
+        }
+
+        @media (max-width: $layout-breakpoint-small) {
+            width: 100%;
+            font-size: 1.2rem;
+        }
+    }
+
+    ul {
+        padding: 2rem 4rem;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 1.8rem;
+        justify-content: space-evenly;
+
+        li {
+            &:hover {
+                color: $active;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .about {
+
+        &--image {
+            padding: 3rem 6rem;
+
+            @media (max-width: $layout-breakpoint-small) {
+                padding: .6rem 1.4rem;
+            }
+        }
+
+        &--contacts,
+        &--team {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 4rem;
+            align-items: center;
+
+            h1 {
+                width: 100%;
+                text-align: center;
+                padding: 2rem 0 2rem;
+
+                @media (max-width: $layout-breakpoint-xsmall) {
+                    font-size: 5rem;
+                }
+            }
+
+            hr {
+                width: 90%;
+                align-self: center;
+                height: .2rem;
+                background-color: $border;
+                border: none;
+                margin-bottom: 2rem;
+            }
+
+            .contacts--icon__info {
+                display: flex;
+                padding: 4rem 7rem;
+                justify-content: center;
+
+                @media (max-width: $layout-breakpoint-small) {
+                    flex-flow: column wrap;
+                    padding: 1rem 1.4rem;
+                    gap: 2rem;
+                }
+
+                &>div {
+                    display: flex;
+                    flex-flow: column wrap;
+                    align-items: center;
+
+                    &.icon {
+                        width: 65%;
+                        justify-content: center;
+
+                        @media (max-width: $layout-breakpoint-small) {
+                            width: 100%;
+                        }
+
+                        img {
+                            width: 100%;
+                        }
+
+                    }
+
+                    &.info {
+                        width: 35%;
+
+                        @media (max-width: $layout-breakpoint-small) {
+                            width: 100%;
+                        }
+
+                        p {
+                            width: 100%;
+                            font-weight: 400;
+                            text-align: left;
+                            margin: 0;
+                            padding-bottom: 1.4rem;
+                            padding-left: 2rem;
+                            font-size: 2.2rem;
+
+                            a {
+                                font-weight: 400;
+                            }
+                        }
+                    }
+
+                }
+
+            }
+
+            .carousel {
+                cursor: grab;
+                padding: 4rem 0;
+                overflow: hidden;
+                max-width: 90%;
+                margin: 0 10rem;
+
+                .inner-carousel {
+                    display: flex;
+                    gap: 3rem;
+
+                    .item {       
+                        min-width: 30rem;
+
+                        @media (max-width: $layout-breakpoint-small) {
+                            min-width: 24rem;
+                        }
+
+                        img {
+                            width: 100%;
+                            height: 85%;
+                            border-radius: 2rem;
+                            pointer-events: none;
+                            margin-bottom: 2rem;
+
+                            @media (max-width: $layout-breakpoint-small) {
+                                height: 76%;
+                            }
+                        }
+
+                        h2 {
+                            font-size: 3rem;
+                            margin-bottom: .4rem;
+                            font-weight: 500;
+                        }
+
+                        p {
+                            font-size: 2.4rem;
+                            margin-bottom: .2rem;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}

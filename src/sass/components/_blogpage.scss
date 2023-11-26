@@ -1,0 +1,153 @@
+$font-size-normal: 1.8rem;
+$font-size-heading: 3.5rem;
+$font-size-content-heading: 32px;
+$font-weight-bold: 600;
+$font-weight-semi-bold: 700;
+$light-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+$light-shadow-hover: 0 5px 10px rgba(0, 0, 0, 0.2);
+$photo-slide-duration: 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+$photo-change-duration: 0.65s cubic-bezier(0.23, 1, 0.320, 1);
+
+// Mixing for flex container configuration
+@mixin flex-container($direction: row, $justify: flex-start, $align: center, $wrap: no-wrap) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    flex-wrap: $wrap;
+}
+
+// Mixing for box sizes and shadow
+@mixin box-size-shadow($width: 100%, $padding: 0, $borderRadius:0, $shadow: none) {
+    width: $width;
+    padding: $padding;
+    border-radius: $borderRadius;
+    box-shadow: $shadow;
+}
+
+.blog-container {
+    font-size: $font-size-normal;
+    @include flex-container(column, center, center, wrap);
+    padding: 0 8rem;
+
+    @media (max-width: $layout-breakpoint-xsmall) {
+        padding: 0 .5rem
+    }
+
+    @media (max-width: $layout-breakpoint-small) {
+        padding: 0 1rem
+    }
+
+    @media (max-width: $layout-breakpoint-medium) {
+        padding: 0 2rem
+    }
+
+    h1 {
+        font-size: $font-size-heading;
+        font-weight: $font-weight-bold;
+        margin-bottom: 2.8rem;
+    }
+
+    .search-form {
+        @include flex-container(row, center, center, wrap);
+        gap: 2rem;
+    }
+
+    .container-posts {
+        gap: 6rem;
+        @include box-size-shadow(100%, 4rem, 0, none);
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    
+        @media (max-width: $layout-breakpoint-xsmall) {
+            justify-content: center;
+            padding: 0;
+            margin-bottom: 4rem
+        }
+
+        .post {
+            position: relative;
+            @include flex-container(row, center, space-between, no-wrap);
+            @include box-size-shadow(360px, 32px, 1rem, $light-shadow);
+            overflow: hidden;
+            transition: all $photo-slide-duration;
+
+            @media (max-width: $layout-breakpoint-xsmall) {
+                @include box-size-shadow(100%, 32px, 1rem, $light-shadow);
+            }
+
+            @media (max-width: $layout-breakpoint-small) {
+                @include box-size-shadow(300px, 32px, 1rem, $light-shadow);
+            }
+
+            .content {
+
+                @include flex-container(column, space-between, flex-start, no-wrap);
+                gap: 20px;
+
+                transition: all $photo-slide-duration;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 5px;
+                    background: $active;
+                    /*linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100%)*/
+
+                    z-index: -1;
+                    transition: all 0.65s cubic-bezier(0.23, 1, 0.320, 1);
+                }
+
+                &:hover {
+                    box-shadow: none;
+                    color: $white;
+
+                    &::before {
+                        height: 100%;
+                    }
+
+                    .btn {
+                        color: $semi-black;
+                        background: #e8e8e8;
+                    }
+                }
+
+                .heading {
+                    font-weight: $font-weight-semi-bold;
+                    font-size: $font-size-content-heading;
+                }
+
+                .para {
+                    line-height: 1.5;
+                }
+
+                .btn {
+                    color: $white;
+                    text-decoration: none;
+                    padding: 10px;
+                    font-weight: 600;
+                    border: none;
+                    cursor: pointer;
+                    background: $active;
+                    border-radius: 5px;
+                    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+                    transition: all $photo-slide-duration;
+
+                    &:hover {
+                        outline: 2px solid #e8e8e8;
+                        background: transparent;
+                        color: #e8e8e8;
+                    }
+
+                    &:active {
+                        box-shadow: none;
+                    }
+                }
+            }
+        }
+    }
+}

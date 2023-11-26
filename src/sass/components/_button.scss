@@ -1,0 +1,68 @@
+.c-button--gooey {
+    font: {
+        weight: 700;
+        size: 16px;
+    };
+    text-decoration: none;
+    padding: 0.9em 1.6em;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    z-index: 1;
+    margin: 2.4rem 0;
+    color: $active;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: {
+        width: 4px;
+        style: solid;
+        color: $active;
+        radius: 0;
+    };
+    position: relative;
+    transition: all 700ms ease;
+
+    &:hover {
+        color: #fff;
+
+        .c-button__blobs div {
+            transform: scale(1.4);
+        }
+    }
+
+    .c-button__blobs {
+        height: 100%;
+        filter: url(#goo);
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: -3px;
+        right: -1px;
+        z-index: -1;
+
+        div {
+            background-color: $active;
+            width: 34%;
+            height: 100%;
+            border-radius: 100%;
+            position: absolute;
+            transform: scale(1.4) translateY(125%);
+            transition: all 700ms ease;
+
+            &:nth-child(1) {
+                left: -5%;
+            }
+
+            &:nth-child(2) {
+                left: 30%;
+                transition-delay: 60ms;
+            }
+
+            &:nth-child(3) {
+                left: 66%;
+                transition-delay: 25ms;
+            }
+        }
+    }
+}
